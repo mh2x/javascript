@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Demo</title>
+	<style type="text/css" src="style.css"></style>
+	
+	<script type="text/javascript">
+
+	var Student = {
+		name: "Student",
+		distance_traveled: 0,
+
+		sayName: function (){
+			console.log("Name is: ", this.name);
+		},
+
+		saySomething: function( s ){
+			console.log(s);
+		},
+
+		walk: function(){
+				this.distance_traveled +=3;
+				console.log("Walking: distance traveled is ", this.distance_traveled);
+		},
+
+		run: function(){
+				this.distance_traveled +=10;
+				console.log("Running distance traveled is ", this.distance_traveled);
+		},
+
+		crawl: function(){
+				this.distance_traveled +=1;
+				console.log("Cralwing: distance traveled is ", this.distance_traveled);
+		}
+	};
+	// How to manufactor objects in Javascript?
+
+	//1. one approach:
+	function newPerson(name){
+		return {
+			name: name,
+			sayName: function(){
+				console.log(name);
+			}
+		};
+	}
+
+	//2. Second approach
+
+	function Person(name)
+	{
+		this.name = name;
+		this.sayName = function (){
+			console.log(name);
+		};
+	}
+
+	var Mohammad = newPerson("Mohammad");
+	Mohammad.sayName();
+
+	//this object requires new keyword
+	var Kien = new Person("Kien");
+	Kien.sayName();
+
+	Student.saySomething("Hi, I am at the King library in San Jose today!");
+	Student.sayName();
+	Student.crawl();
+	Student.walk();
+	Student.run();
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>
